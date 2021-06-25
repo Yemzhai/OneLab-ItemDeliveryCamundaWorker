@@ -32,6 +32,8 @@ public class Payment implements ExternalTaskHandler {
         if(enoughMoney){
             customerDTO.setMoney(customerDTO.getMoney()-choseItem.getPrice());
             choseItem.setQuantity(choseItem.getQuantity()-1);
+            customer.updateTheCustomer(customerId, customerDTO);
+            item.updateTheItem(itemId, choseItem);
 //            customerDTO.setItemsList(customerDTO.getItemsList().add(choseItem));
         }
         System.out.println(customerDTO);
